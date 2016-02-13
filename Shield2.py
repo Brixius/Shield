@@ -1,4 +1,4 @@
-from constants2 import *
+from constants import *
 import pygame, sys, string, csv, time
 from pygame.locals import *
 from random import randint
