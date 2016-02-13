@@ -83,7 +83,7 @@ def checkPointScored(hole1, ball, score, subnum, blocknum, trialnum, randspeed, 
         score += 1
         sUP +=1
         hit = 1
-    elif direction == 1 and ball.right >= (WINDOWWIDTH - LINETHICKNESS) or (direction == 2 and ball.left <= LINETHICKNESS):
+    elif (direction == 1 and ball.right >= (WINDOWWIDTH - LINETHICKNESS)) or (direction == 2 and ball.left <= LINETHICKNESS):
         score -= 1
         sDN += 1
         if score < 0:
