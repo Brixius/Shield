@@ -11,7 +11,7 @@ DUMMYMODE = True # False for gaze contingent display, True for dummy mode (using
 LOGFILENAME = raw_input("Enter subject number: ") # logfilename, without path
 LOGFILE = LOGFILENAME[:] # .txt; adding path before logfilename is optional; logs responses (NOT eye movements, these are stored in an EDF file!)
 subnum = LOGFILENAME #LFN is name for pygaze and tracker logs, subnum is for the custom exp code already written before adding ET stuff.
-DIREC = int(raw_input("Enter 1 to start with left to right, 2 for right to left: ")) #Sets starting direction for game trials.
+DIREC = int(raw_input("Enter 1 to start with left to right, 2 for right to left: "))
 STARTSPEED = int(raw_input("Enter starting speed: ")) #Sets pixels over 1 for ball to move per tick.  Should probably change to only allow number as input but meh.
 
 # Number of frames per second
@@ -27,9 +27,11 @@ WINDOWWIDTH = 800
 WINDOWHEIGHT = 600
 LINETHICKNESS = 10
 HOLESIZE = 60 #size of shield, orig 50
-GAMESESSDUR = 10 #duration of game block in seconds
-BLOCKSTILQUIT = 4 #Number of blocks to run (reading task and game task)
-BLOCKSTILSWITCH = 2 #Blocks to run before changing direction (set to same as BLOCKSTILQUIT for no direction switching)
+GAMESESSDUR = 10 #duration of game block in seconds #240 for 4 minutes
+BLOCKSTILQUIT = 8 #Number of blocks to run (reading task and game task)
+BLOCKSTILSWITCH = 4 #Number of blocks to run before switching game task direction.
+    #Set to half of BLOCKSTILQUIT to switch in the middle.
+    #Set equal to BLOCKSTILQUIT to keep the same direction for the entire run.
 #subnum = raw_input("Enter subject number: ")
 
 # Set up the colours
