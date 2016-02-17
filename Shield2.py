@@ -17,7 +17,7 @@ TO MODIFY STAIRCASING, SCREEN SIZE, FPS, COLOURS, GO THERE.
 keyboard = Keyboard()
 # display object
 disp = Display()
-# create eyelink objecy
+# create eyelink object
 eyetracker = EyeTracker(disp)
 # eyelink calibration
 #eyetracker.calibrate()
