@@ -56,7 +56,7 @@ def drawHole(hole):
         hole.bottom = WINDOWHEIGHT - LINETHICKNESS
     #Stops shield moving too high
     elif hole.top < LINETHICKNESS:
-        hole.top = LINETHICKNESS
+        hole.top = LINETHICKNESSb
     #Draws shield
     pygame.draw.rect(DISPLAYSURF, OTHCOL, hole)
 
@@ -116,7 +116,8 @@ def checkPointScored(hole1, ball, score, subnum, blocknum, trialnum, randspeed, 
     randspeed = int(bspd)
     if randspeed < 0:
         randspeed=0
-    ball.y = randint((LINETHICKNESS*3),(WINDOWHEIGHT - LINETHICKNESS*3))
+#    ball.y = randint((LINETHICKNESS*3),(WINDOWHEIGHT - LINETHICKNESS*3))
+    ball.y = randint(100,(WINDOWHEIGHT-100))
     if time.clock()-gametimer >= GAMESESSDUR:
         blockend=1
     elif time.clock()-gametimer <> GAMESESSDUR:
@@ -126,6 +127,7 @@ def checkPointScored(hole1, ball, score, subnum, blocknum, trialnum, randspeed, 
     return score,randspeed,ball.x,ball.y,blocknum,trialnum,gametimer,blockend,sUP,sDN,bspd
   else: return score,randspeed,ball.x,ball.y,blocknum,trialnum,gametimer,blockend,sUP,sDN,bspd
 
+'''
 #Displays the current score on the screen
 def displayScore(score):
     resultSurf = BASICFONT.render('Score = %s' %(score), True, WHITE)
@@ -144,6 +146,7 @@ def displayBlockNum(blocknum):
     blockRect = blockSurf.get_rect()
     blockRect.topleft = (250, 25)
     DISPLAYSURF.blit(blockSurf, blockRect)
+'''
 
 #Writes log file when quit command is issued (keypress or end of experiment)
 def quitwrite():
@@ -245,6 +248,8 @@ def readbits(filename,t0,blocknum,R1,R2,R3,R4,R5,A1,A2):
 #            t0=time.clock()
 #            pygame.display.flip()
             print('%s key pressed, end reading portion' %(qans))
+            if blocknum == RECALBLOCK and filename=='70':
+               eyetracker.calibrate()
             return filename,t0,blocknum
         else: return filename,t0,blocknum
     if filename=='70':
@@ -298,7 +303,8 @@ def gamebits(gametimer,blockend,blocknum,filename):
         ballX = LINETHICKNESS + 5
     if direction == 2:
         ballX = (WINDOWWIDTH - LINETHICKNESS - 5)
-    ballY = randint((LINETHICKNESS*3),(WINDOWHEIGHT - LINETHICKNESS*3))#WINDOWHEIGHT/2 - LINETHICKNESS/2
+#    ballY = randint((LINETHICKNESS*3),(WINDOWHEIGHT - LINETHICKNESS*3))#WINDOWHEIGHT/2 - LINETHICKNESS/2
+    ballY = randint(100,(WINDOWHEIGHT-100))
     playerOnePosition = (WINDOWHEIGHT - HOLESIZE) /2
 #need to set initial vars score and randspeed
     score = 0
@@ -362,9 +368,9 @@ def gamebits(gametimer,blockend,blocknum,filename):
         score, randspeed, ball.x, ball.y, blocknum, trialnum, gametimer, blockend, sUP, sDN, bspd = checkPointScored(hole1, ball, score, subnum, blocknum, trialnum, randspeed, gametimer, blockend, L1, L2, L3, L4, L5, L6, L7, sUP, sDN, bspd, direction)
 #        randspeed, ball.x, ball.y, blocknum, trialnum, gametimer, blockend = checkHitWall(ball, score, randspeed, blocknum, trialnum, gametimer, blockend)
 
-        displayScore(score)
-        displayTrialNum(trialnum)
-        displayBlockNum(blocknum)
+#        displayScore(score)
+#        displayTrialNum(trialnum)
+#        displayBlockNum(blocknum)
 
         pygame.display.update()
         FPSCLOCK.tick(FPS)
