@@ -28,10 +28,13 @@ WINDOWHEIGHT = 600
 LINETHICKNESS = 10
 HOLESIZE = 60 #size of shield, orig 50
 GAMESESSDUR = 10 #duration of game block in seconds #240 for 4 minutes
-BLOCKSTILQUIT = 8 #Number of blocks to run (reading task and game task)
-BLOCKSTILSWITCH = 4 #Number of blocks to run before switching game task direction.
+BLOCKSTILQUIT = 4 #Number of blocks to run (reading task and game task)
+BLOCKSTILSWITCH = 2 #Number of blocks to run before switching game task direction.
     #Set to half of BLOCKSTILQUIT to switch in the middle.
     #Set equal to BLOCKSTILQUIT to keep the same direction for the entire run.
+RECALBLOCK = 3 #Block to have a calibration screen come up between reading and
+    #game trials.  To recal between them just before game direction switches,
+    #set to BLOCKSTILSWITCH + 1.
 #subnum = raw_input("Enter subject number: ")
 
 # Set up the colours
@@ -51,9 +54,11 @@ DNTHRESH = 1 #consecutive misses to decrease ball speed.
 SCREENNR = 0 # number of the screen used for displaying experiment
 DISPTYPE = 'pygame' # either 'psychopy' or 'pygame'
 DISPSIZE = (800,600) # canvas size
+#SCREENSIZE = (33.8,27.1) #physical screen size in centimeters.
+#SCREENDIST = 60.0 #distance from participant to screen in centimeters
 MOUSEVISIBLE = False # mouse visibility
-BGC = (125,125,125) # backgroundcolour
-FGC = (0,0,0) # foregroundcolour
+BGC = (0,0,0) # backgroundcolour
+FGC = (255,255,255) # foregroundcolour
 FONTSIZE = 32 # font size
 
 # INPUT
@@ -63,6 +68,7 @@ KEYTIMEOUT = 1 # None for no timeout, or a value in milliseconds
 # EYETRACKER
 # general
 TRACKERTYPE = 'eyelink' # either 'smi', 'eyelink' or 'dummy' (NB: if DUMMYMODE is True, trackertype will be set to dummy automatically)
+#EVENTDETECTION = 'native'
 #SACCVELTHRESH = 35 # degrees per second, saccade velocity threshold
 #SACCACCTHRESH = 9500 # degrees per second, saccade acceleration threshold
 
